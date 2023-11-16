@@ -37,9 +37,9 @@ Una vez que ya se tenga instalado Angular y NodeJS se abre la ruta del proyecto 
 
 `npm i` para que se instalen las dependencias correspondientes 
 
- `ng serve` para correr el proyecto.
+ `ng serve` para levantar el servidor.
 
-## Dependencias y librerías del proyecto
+## Dependencias y librerías
 Para la solución de .Net 6 se utilizaron las siguientes dependencias:
 * Api
   * Microsoft.EntityFrameworkCore.Tools (7.0.14)
