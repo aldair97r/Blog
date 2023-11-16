@@ -35,7 +35,7 @@ export const environment = {
 ```
 Una vez que ya se tenga instalado Angular y NodeJS se abre la ruta del proyecto Blog.WebApp desde la línea de comandos y se ejecuta lo siguiente:
 
-`npm i` para que se instalen las dependencias correspondientes 
+`npm i` para que se instalen las dependencias correspondientes.
 
  `ng serve` para levantar el servidor.
 
