@@ -23,7 +23,7 @@ Posterior a modificar la cadena de conexión se establece el proyecto Blog.Api c
 
 ## Configuración de la aplicación web
 En el proyecto Blog.WebApp/source/app/environments existe el archivo environment.ts, ahí se debe modificar el puerto dependiendo de cuál sea en el que está corriendo la Api previamente levantada.
-```json
+```typescript
 export const environment = {
   production: false,
   port: '****',
