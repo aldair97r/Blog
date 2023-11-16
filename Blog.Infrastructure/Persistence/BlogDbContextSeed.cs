@@ -1,17 +1,11 @@
 ﻿using Blog.Domain;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.Infrastructure.Persistence
 {
     public class BlogDbContextSeed
     {
-        public static async Task SeedAsync(BlogDbContext context, ILogger<BlogDbContext> logger)
+        public async Task SeedAsync(BlogDbContext context, ILogger<BlogDbContext> logger)
         {
             if (!context.Entradas!.Any())
             {
@@ -24,7 +18,7 @@ namespace Blog.Infrastructure.Persistence
         private static IEnumerable<Entrada> ObtenerEntradasPreconfiguradas()
         {
             List<Entrada> entradas = new List<Entrada>();
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 2; i++)
             {
                 Entrada entrada = new Entrada
                 {

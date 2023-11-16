@@ -1,6 +1,7 @@
 using Blog.Infrastructure;
 using Blog.Application;
-
+using Blog.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,16 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<BlogDbContext>();
+    dbContext.Database.Migrate();
+    var serviceProvider = builder.Services.BuildServiceProvider();
+    var logger = serviceProvider.GetRequiredService<ILogger<BlogDbContext>>();
+    BlogDbContextSeed seed = new BlogDbContextSeed();
+    await seed.SeedAsync(dbContext, logger);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
