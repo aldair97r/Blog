@@ -1,0 +1,101 @@
+<div class="container shadow">
+  <div class="container mt-5">
+    <div>
+      <form
+        style="padding-top: 1em"
+        [formGroup]="entradaForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <div class="col">
+            <div
+              class="validation-error"
+              *ngIf="entradaForm.get('titulo')?.hasError('emptyField')"
+            >
+              El titulo es requerido.
+            </div>
+            <label for="titulo" class="form-label"><b>Titulo:</b></label>
+            <input
+              type="text"
+              id="titulo"
+              formControlName="titulo"
+              class="form-control"
+            />
+          </div>
+          <div class="col">
+            <div
+              class="validation-error"
+              *ngIf="entradaForm.get('autor')?.hasError('emptyField')"
+            >
+              El autor es requerido.
+            </div>
+            <label for="autor" class="form-label"><b>Autor:</b></label>
+            <input
+              type="text"
+              id="autor"
+              formControlName="autor"
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div
+              class="validation-error"
+              *ngIf="
+                entradaForm.get('fechaPublicacion')?.hasError('futureDate')
+              "
+            >
+              La fecha de publicacion no puede ser posterior a hoy.
+            </div>
+            <div
+              class="validation-error"
+              *ngIf="
+                entradaForm.get('fechaPublicacion')?.hasError('emptyField')
+              "
+            >
+              La fecha de publicacion es requerida.
+            </div>
+            <label for="fechaPublicacion" class="form-label"
+              ><b>Fecha de publicacion:</b></label
+            >
+            <input
+              type="date"
+              id="fechaPublicacion"
+              formControlName="fechaPublicacion"
+              class="form-control"
+              [ngModel] ="this.currentDate | date:'yyyy-MM-dd'"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div
+              class="validation-error"
+              *ngIf="entradaForm.get('contenido')?.hasError('emptyField')"
+            >
+              El contenido es requerido.
+            </div>
+            <label for="contenido" class="form-label"><b>Contenido:</b></label>
+            <textarea
+              id="contenido"
+              formControlName="contenido"
+              name="contenido"
+              rows="4"
+              cols="50"
+              class="form-control"
+            >
+            </textarea>
+          </div>
+        </div>
+        <div style="padding-bottom: 1em" class="d-flex flex-row-reverse mt-4">
+          <button style="width: 30%" type="submit" class="btn btn-dark">
+            Agregar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

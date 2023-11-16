@@ -1,0 +1,24 @@
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <a
+      style="color: white !important"
+      class="navbar-brand"
+      [routerLink]="['/entradas']"
+      >Navbar</a
+    >
+    <div *ngIf="show" class="d-flex" role="search">
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Buscar..."
+        aria-label="Search"
+        (keydown.enter)="filtrar()"
+        [value]="this.filtro"
+        [(ngModel)]="this.filtro"
+      />
+      <button class="btn btn-outline-success" (click)="filtrar()">
+        Buscar
+      </button>
+    </div>
+  </div>
+</nav>

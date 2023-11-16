@@ -1,0 +1,43 @@
+<div class="container">
+  <div *ngFor="let entrada of entradasMap; let i = index" class="card mt-5 shadow">
+    <div
+      class="card-header"
+      style="cursor: pointer"
+      [routerLink]="['/entradas/detalle/', entrada.id]"
+    >
+      <h3>{{ entrada.autor }}</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ entrada.titulo }}</h5>
+      <div *ngIf="!entrada.show">
+        <p class="card-text">
+          {{ entrada.contenido.substring(0, 69) + "..." }}
+        </p>
+        
+        <a
+          style="
+            cursor: pointer;
+            text-decoration: underline;
+            color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+          "
+          (click)="entrada.show = !entrada.show"
+          >Ver más</a
+        >
+      </div>
+      <div *ngIf="entrada.show">
+        <p class="card-text">
+          {{ entrada.contenido }}
+        </p>
+        <a
+          style="
+            cursor: pointer;
+            text-decoration: underline;
+            color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+          "
+          (click)="entrada.show = !entrada.show"
+          >Ver menos</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+.shadow {
+    box-shadow: 16px 10px 18px 3px rgba(0, 0, 0, 0.81);
+    -webkit-box-shadow: 16px 10px 18px 3px rgba(0, 0, 0, 0.81);
+    -moz-box-shadow: 16px 10px 18px 3px rgba(0, 0, 0, 0.81);
+  }
