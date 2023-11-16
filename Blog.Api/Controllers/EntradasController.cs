@@ -1,5 +1,6 @@
 ﻿using Blog.Application.Features.Entradas.Commands.AgregarEntrada;
 using Blog.Application.Features.Entradas.Queries.FiltrarEntradas;
+using Blog.Application.Features.Entradas.Queries.ObtenerEntradaPorId;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,10 @@ namespace Blog.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EntradaController : ControllerBase
+    public class EntradasController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public EntradaController(IMediator mediator)
+        public EntradasController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -24,6 +25,15 @@ namespace Blog.Api.Controllers
             var query = new ObtenerEntradasQuery(filtro);
             var entradas = await _mediator.Send(query);
             return Ok(entradas);
+        }
+
+        [HttpGet("ObtenerEntradaPorId/{id}", Name = "ObtenerEntradaPorId")]
+        [ProducesResponseType(typeof(IEnumerable<EntradasVM>), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<EntradasVM>>> ObtenerEntradas(int id)
+        {
+            var query = new ObtenerEntradaPorIdQuery(id);
+            var entrada = await _mediator.Send(query);
+            return Ok(entrada);
         }
 
         [HttpPost(Name = "AgregarEntrada")]

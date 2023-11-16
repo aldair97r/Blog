@@ -1,6 +1,6 @@
-﻿namespace Blog.Application.Features.Entradas.Queries.FiltrarEntradas
+﻿namespace Blog.Application.Features.Entradas.Queries.ObtenerEntradaPorId
 {
-    public class EntradasVM
+    public class EntradaVM
     {
         public int? Id { get; set; }
         public string? Titulo { get; set; }

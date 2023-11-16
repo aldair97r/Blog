@@ -6,5 +6,6 @@ namespace Blog.Application.Contracts
     {
         Task<Entrada> AgregarAsync(Entrada entrada);
         Task<List<Entrada>> ObtenerAsync(string filtro);
+        Task<Entrada> ObtenerPorIdAsync(int id);
     }
 }

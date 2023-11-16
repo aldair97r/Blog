@@ -28,5 +28,10 @@ namespace Blog.Infrastructure.Repositories
                 entradas = entradas.Where(x => x.Titulo.Contains(filtro) || x.Autor.Contains(filtro) || x.Contenido.Contains(filtro)).ToList();
             return entradas;
         }
+
+        public async Task<Entrada> ObtenerPorIdAsync(int id)
+        {
+            return await _context.Set<Entrada>().FindAsync(id);
+        }
     }
 }
