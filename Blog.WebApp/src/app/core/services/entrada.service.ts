@@ -9,19 +9,21 @@ import { EntradaPost } from '../models/entradaPost.model';
   providedIn: 'root',
 })
 export class EntradaService {
+  urlApi = environment.url + environment.port + /api/;
+
   constructor(private http: HttpClient) {}
 
   obtenerEntradas(filtro?: string): Observable<Entrada[]> {
-    return this.http.get<Entrada[]>(environment.urlApi + 'Entradas/' + filtro);
+    return this.http.get<Entrada[]>(this.urlApi + 'Entradas/' + filtro);
   }
 
   obtenerEntradaPorId(id?: string): Observable<Entrada> {
     return this.http.get<Entrada>(
-      environment.urlApi + 'Entradas/ObtenerEntradaPorId/' + id
+      this.urlApi + 'Entradas/ObtenerEntradaPorId/' + id
     );
   }
 
   agregarEntrada(entrada?: EntradaPost): Observable<number> {
-    return this.http.post<number>(environment.urlApi + 'Entradas', entrada);
+    return this.http.post<number>(this.urlApi + 'Entradas', entrada);
   }
 }
