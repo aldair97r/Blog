@@ -2,14 +2,14 @@
 
 Aplicación realizada con metodología en Clean Architecture.
 
- .Net 6
+ .NET SDK 7.0.402
 
   NodeJS 21.1.0
 
   Angular 17
 
 ## Configuración de la base de datos
-Para generar la base de datos debe dirigirse al archivo appsettings.json en el proyecto Blog.Api y modificar la cadena de conexión llamada ConnectionString para conectarse a su instancia de base de datos.
+Para generar la base de datos debe dirigirse al archivo appsettings.json en el proyecto Blog.Api y modificar la cadena de conexión llamada ConnectionString para conectarse a su instancia de base de datos. Se puede modificar el `Catalog` para nombrar a la base de datos de otra manera si se desea.
 
 ```json
 {
