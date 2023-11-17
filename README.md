@@ -22,7 +22,7 @@ Para generar la base de datos debe dirigirse al archivo appsettings.json en el p
 Posterior a modificar la cadena de conexión se establece el proyecto Blog.Api como proyecto de inicio y se ejecuta. Al ejecutar se debe crear la base de datos llamada Blog con algunos registros pre cargados.
 
 ## Configuración de la aplicación web
-En el proyecto Blog.WebApp/source/app/environments existe el archivo environment.ts, ahí se debe modificar el puerto dependiendo de cuál sea en el que está corriendo la Api previamente levantada.
+En el proyecto Blog.WebApp/source/app/environments existe el archivo environment.ts, ahí se debe modificar el puerto en la sección `port` dependiendo de cuál sea en el que está corriendo la Api previamente levantada.
 ```typescript
 export const environment = {
   production: false,
