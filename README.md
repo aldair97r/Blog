@@ -1,4 +1,4 @@
-# Blog Application
+# Blog App
 
 Aplicación realizada con metodología en Clean Architecture.
 
