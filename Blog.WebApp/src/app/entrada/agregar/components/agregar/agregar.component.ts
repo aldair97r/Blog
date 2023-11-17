@@ -14,6 +14,7 @@ import {
 } from '@angular/forms';
 import { EntradaPost } from '../../../../core/models/entradaPost.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-agregar-component',
@@ -29,7 +30,8 @@ export class AgregarComponent implements OnChanges {
 
   constructor(
     private formBuilder: FormBuilder,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {
     this.currentDate = new Date();
     this.entradaForm = this.formBuilder.group({
@@ -44,9 +46,10 @@ export class AgregarComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['limpiarFormulario']) {
+    if (this.limpiarFormulario != null) {
       this.entradaForm.reset();
       this.spinner.hide();
+      this.toastr.success('Entrada agregada correctamente.', 'Correcto');
     }
   }
 
