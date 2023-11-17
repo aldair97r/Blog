@@ -55,4 +55,5 @@ Para la solución de .Net 6 se utilizaron las siguientes dependencias:
 
 Para el proyecto web se utilizaron las siguientes dependencias:
 * Bootstrap
-* NgxSpinner
+* Ngx-spinner
+* Ngx-toastr
